@@ -194,22 +194,16 @@ open class Facade : IFacade
     * @param notificationName the name of the notiification to send
     * @param body the body of the notification
     * @param type the type of the notification
-    * @param sync whether the notification should be called synchronously
     */
-    public func sendNotification( _ notificationName: String , body: Any? , type: String?, sync: Bool )
+    public func sendNotification( _ notificationName: String , body: Any? , type: String? )
     {
-        if sync {
+        if Thread.isMainThread {
             self.notifyObservers( Notification.withName( notificationName , body: body , type: type ))
         } else {
             DispatchQueue.main.async {
                 self.notifyObservers( Notification.withName( notificationName , body: body , type: type ))
             }
         }
-    }
-    
-    public func sendNotification( _ notificationName: String , body: Any? , type: String? )
-    {
-        self.sendNotification( notificationName , body:body , type:type, sync: false )
     }
     
     public func sendNotification ( _ notificationName: String )

@@ -134,12 +134,10 @@ public protocol IFacade
     * @param notificationName the name of the notiification to send
     * @param body the body of the notification
     * @param type the type of the notification
-    * @param sync whether the notification should be called synchronously
     */
     func sendNotification ( _ notificationName: String )
     func sendNotification ( _ notificationName: String , body: Any? )
     func sendNotification ( _ notificationName: String , body: Any? , type: String? )
     func sendNotification ( _ notificationName: String , type: String? )
-    func sendNotification ( _ notificationName: String , body: Any? , type: String?, sync: Bool )
     
 }

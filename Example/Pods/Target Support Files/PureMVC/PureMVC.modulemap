@@ -1,0 +1,6 @@
+framework module PureMVC {
+  umbrella header "PureMVC-umbrella.h"
+
+  export *
+  module * { export * }
+}
